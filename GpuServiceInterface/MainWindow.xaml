@@ -1,0 +1,51 @@
+﻿<Window x:Class="GpuServiceInterface.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GpuServiceInterface" xmlns:gpuservice="clr-namespace:GpuService;assembly=GpuService" d:DataContext="{d:DesignInstance Type=local:MainWindow}"
+        mc:Ignorable="d"
+        WindowStartupLocation="Manual" Left="256" Top="524"
+        
+        Title="GPU" Height="192" Width="1024">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Fear inoculum.jpg"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="128"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        
+        <TextBlock Grid.Row="0" Grid.Column="0" 
+                   Text="{Binding GpuService.GpuClock, StringFormat='Частота ГПУ: {0} МГц'}"
+                   Foreground="Wheat"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" 
+                   Text="{Binding GpuService.MemClock, StringFormat='Частота памяти: {0} МГц'}" 
+                   Foreground="Wheat"/>
+        <TextBlock Grid.Row="0" Grid.Column="2" 
+                   Text="{Binding GpuService.GpuService.ArchInfo}" FontSize="16" FontWeight="Bold" 
+                   Foreground="Wheat"/>
+        
+        <TextBlock Grid.Row="0" Grid.Column="3" 
+                   Text="{Binding GpuService.GpuName}" FontSize="16" FontWeight="Bold" 
+                   Foreground="Wheat"/>
+      
+
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="GPU CLOCK" Foreground="Wheat"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="MEM CLOCK" Foreground="Wheat"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="GPU POWER" Foreground="Wheat"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="3" Text="GPU NAME" Foreground="Wheat"></TextBlock>
+
+    </Grid>
+</Window>
